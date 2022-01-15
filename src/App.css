@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.background {
+  background-color: #0F0E2C;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.postContainer {
+  background-color: #F4F4F4;
+  box-shadow: inset 0px 4px 4px 2px #00000040;
+  border-radius: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imageInPost {
+  border-radius: 5px;
+  width: 600px;
+}
+
+.imageContainer {
+  display: flex;
+  flex: 1;
+  padding: 30px;
+}
