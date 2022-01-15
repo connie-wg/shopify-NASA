@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 150vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,11 +38,14 @@
 }
 
 .background {
-  background-color: #0F0E2C;
+  background-color: #1D1C2E;
+  height: 100vh;
   display: flex;
   flex: 1;
   align-items: center;
   justify-content: center;
+  flex-direction: 'row';
+  overflow: hidden;
 }
 
 .postContainer {
@@ -53,15 +56,36 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 2vw;
+}
+.postContainer:hover {
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 .imageInPost {
   border-radius: 5px;
-  width: 600px;
+  height: 50vh;
 }
 
 .imageContainer {
   display: flex;
-  flex: 1;
+  flex: 4;
   padding: 30px;
+}
+
+
+
+.captionContainer {
+  display: flex;
+  flex: 1;
+}
+
+.centralPostRow {
+  display: flex;
+  flex: 1;
+  height: 90vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }

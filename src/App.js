@@ -1,11 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
+import { Post } from './Components';
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { findByLabelText } from '@testing-library/react';
+
+//bootstrap
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+
+//functions
+import { fetchAllData, fetchData } from './nasa';
+import { NavItem } from 'react-bootstrap';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -20,26 +28,49 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-
+const arrayPosts = [];
 
 function App() {
+  const[imgUrl, setImgUrl] = useState([]);
+  const[todayUrl, setTodayUrl] = useState('hi');
+  const[visibleIndex, setVisibleIndex] = useState([0, 2]);
+  //const[visArray, setVisArray] = useState([]);
+
+  //const changeImageUrl = () => setImgUrl(fetchData());
+
+  useEffect(() => {
+    fetchData(setTodayUrl);
+    fetchAllData(setImgUrl);
+  }, []);
+
+  const createArrayPosts = () => {
+    imgUrl.forEach((item, index) => {
+      if(index >= visibleIndex[0] && index <= visibleIndex[1]) {
+        arrayPosts.push(
+          <Post source={item.url} date={item.date} caption={item.explanation}></Post>
+        );
+      } 
+    })
+    console.log(imgUrl[0]);
+    return arrayPosts;
+  }
+  
+  const handleClick = () => {
+    setVisibleIndex((prev) => [prev[0] + 1, prev[1] + 1, prev[2] + 1]);
+  }
 
   return (
-    <div style={styles.background}>
-      
-        <div className='postContainer'>
-          <div className='imageContainer'>
-          <img className='imageInPost' src='http://clapway.com/wp-content/uploads/2016/03/8.-NASA.jpg'/>
-          </div>
-          
-          <div style={{display: 'flex', flex: 1}}>
-            <p>hi</p>
-          </div>
-        </div>
-   
-    </div>
+    <Container fluid={true} className='background' onClick={handleClick}>
+      {/*<Post source={todayUrl} date={'today'} caption={'haha'}></Post>
+      <Post date={imgUrl.date} source={imgUrl.url} caption={imgUrl.explanation} />  */} 
+      <div className='centralPostRow'>
+      {createArrayPosts()}
+      </div>
+    </Container>
   );
 }
+
+
 
 export default App;
 
