@@ -92,22 +92,25 @@
 #leftPost {
   display: flex;
   flex: 1;
+  z-index: 1;
 }
 
 #centerPost {
   display: flex;
   flex: 1;
-  z-index: 3;
+  z-index: 2;
 }
 
 .sidePaddingDiv {
   display: flex;
   flex: 1;
+  z-index: 0;
 }
 
 #rightPost {
   display: flex;
   flex: 1;
+  z-index: 1;
 }
 
 @keyframes postToRight {
@@ -123,7 +126,7 @@
 }
 
 .centerPostContainer {
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   height: auto;
   flex-direction: row;

@@ -10,7 +10,7 @@ export const Post = (props) => {
     return(
         <div className='postContainer' style={{visibility: visibility}}>
           <div className='imageContainer'>
-          <img className='imageInPost' src={props.source}/>
+          <img className='imageInPost' style={styles.imageInPost[props.position]}src={props.source}/>
           </div>
           
           <div className='captionContainer'>
@@ -20,4 +20,15 @@ export const Post = (props) => {
          
         </div>
     );
+}
+
+const styles = {
+  imageInPost: {
+    side: {
+      height: '40vh',
+    },
+    center: {
+      height: '65vh',
+    }
+  }
 }

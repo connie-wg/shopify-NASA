@@ -28,7 +28,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const arrayPosts = [];
+
 
 console.log(app);
 
@@ -49,12 +49,17 @@ function App() {
     fetchAllData(setImgUrl);
     createArrayPosts();
   }, []);
-
+ 
   const createArrayPosts = () => {
-    imgUrl.forEach((item, index) => {
+    const arrayPosts = []; 
+    imgUrl.forEach((item) => {
         arrayPosts.push(
-          <Post source={item.url} date={item.date} caption={item.explanation}></Post>
-        );
+          {
+            source: item.url,
+            date: item.date,
+            caption: item.explanation
+          }
+        ); 
     });
     setVisArray(() => arrayPosts);
   }
@@ -62,41 +67,51 @@ function App() {
   const handleClick = (event) => {
     const x = event.clientX;
     //const y = event.clientY;
-    if (x < (windowWidth / 2)) {
+    if (x > (windowWidth / 2)) {
       setVisArray((prev) => {
-        let first = prev.shift();
-        return [...prev, first];
+        let first = visArray[0];
+        let newArr = [...prev, first];
+        newArr.splice(0, 1);
+        console.log(newArr);
+        return newArr;
+        
       });
     } else {
       setVisArray((prev) => {
-        let last = prev.pop();
-        return [last, ...prev];
+        let lastIndex = prev.length - 1;
+        let last = prev[lastIndex];
+        let newArr = [last, ...prev];
+        newArr.pop();
+        console.log(newArr);
+        return newArr;
       });
     }
-    
+  
   }
 
   return (
     <Container fluid={true} className='background' onClick={handleClick}>
       <div className='centralPostRow'>
+        
+      <div className='centerPostContainer'>
+          <div className='sidePaddingDiv'></div>
+          <div id='centerPost'>
+          <Post source={visArray[1].source} date={visArray[1].date} caption={visArray[1].caption} position={'center'}></Post>
+          </div>
+          <div className='sidePaddingDiv'></div>
+        </div>
 
         <div className='sidePostContainer'>
           <div id='leftPost'>
-            {visArray[0]}
+            <Post source={visArray[0].source} date={visArray[0].date} caption={visArray[0].caption } position={'side'}></Post>
           </div>
 
           <div id='rightPost'>
-            {visArray[2]}
+          <Post source={visArray[2].source} date={visArray[2].date} caption={visArray[2].caption} position={'side'}></Post>
           </div>
         </div>
 
-        <div className='centerPostContainer'>
-          <div className='sidePaddingDiv'></div>
-          <div id='centerPost'>
-            {visArray[1]}
-          </div>
-          <div className='sidePaddingDiv'></div>
-        </div>
+        
 
       {/*</div>
       <div style={{width: 500, height: '50vh', backgroundColor: 'white', left: 200, top: 40, zIndex: 3, position: 'absolute'}}>

@@ -14,7 +14,7 @@ export function fetchData(change) {
     } catch(error) {
         console.log(error);
     }
-}
+} 
 
 export function fetchAllData(change) {
     try{
