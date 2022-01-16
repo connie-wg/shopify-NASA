@@ -21,7 +21,7 @@ export function fetchAllData(change) {
         fetch(baseUrl + apiKey + '&' + startDate)
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+            //console.log(json);
             change(json);
             /*json.array.forEach(element => {
                 change(json[1]);

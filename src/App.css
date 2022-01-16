@@ -40,9 +40,8 @@
 .background {
   background-color: #1D1C2E;
   height: 100vh;
-  display: flex;
-  flex: 1;
   align-items: center;
+  display: flex;
   justify-content: center;
   flex-direction: 'row';
   overflow: hidden;
@@ -89,3 +88,45 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+#leftPost {
+  display: flex;
+  flex: 1;
+}
+
+#centerPost {
+  display: flex;
+  flex: 1;
+  z-index: 3;
+}
+
+.sidePaddingDiv {
+  display: flex;
+  flex: 1;
+}
+
+#rightPost {
+  display: flex;
+  flex: 1;
+}
+
+@keyframes postToRight {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+.sidePostContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.centerPostContainer {
+  z-index: 3;
+  position: absolute;
+  height: auto;
+  flex-direction: row;
+  display: flex;
+}
+
