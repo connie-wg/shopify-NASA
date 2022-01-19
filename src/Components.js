@@ -36,37 +36,70 @@ export const Post = (props) => {
     );
 }
 
-const Like = (props) => {
-  const [backColor, setBackColor] = useState(props.color);
-
-  function changeColor() {
-    setBackColor((prev) => {
-      return prev == '#F4F4F4' ? 'turquoise' : '#F4F4F4'
-    });
-  }
-
-  return(
-    <div className="like" style={{backgroundColor: backColor}} onClick={props.method, changeColor}>
-      <div className='star'>
-        <img src={require('./star_icon.png')} style={{zIndex: 0}} ></img>
-      </div>
-      
-      <p>STARSTRUCK</p>
-    </div>
-  );
-}
 
 export const Loading = () => {
   return(
     <div className='loading-background'>
       
       <img className='loading-image' src={'https://media.giphy.com/media/PmYFV3urYHA7y35cRQ/giphy.gif'}></img>
-      <div className='loading-text-cont'><p >LOADING...</p> </div>
+      <div className='loading-text-cont'><p>LOADING...</p> </div>
       
     </div>
   );
 }
 
+
+export const Star = () => {
+  return(
+      <div className='star'></div>
+  );
+}
+
+export const AllStars = () => {
+  <div>
+    <div className='star_background'>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background2'>
+        <Star/>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background3'>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background4'>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background5'>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background6'>
+        <Star/>
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background7' >
+        <Star/>
+        <Star/>
+        </div>
+
+        <div className='star_background8' >
+        <Star/>
+        <Star/>
+        </div>
+      </div>
+}
 
 const styles = {
   side: {
@@ -78,7 +111,7 @@ const styles = {
       flex: 1,
       height: '40vh',
       width: '70vh',
-      opacity: '50%'
+      opacity: '60%'
     },
   }, 
 
