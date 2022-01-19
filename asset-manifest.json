@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shopify-NASA/static/css/main.df9f555c.css",
+    "main.css": "/shopify-NASA/static/css/main.9b3715ae.css",
     "main.js": "/shopify-NASA/static/js/main.1dc621c5.js",
     "static/js/787.edd59a96.chunk.js": "/shopify-NASA/static/js/787.edd59a96.chunk.js",
     "static/media/star_icon.png": "/shopify-NASA/static/media/star_icon.70115f6a2acfd8c9bb3c.png",
@@ -8,12 +8,12 @@
     "static/media/arrow_white_right.png": "/shopify-NASA/static/media/arrow_white_right.cf6177398c6d9f40cdd2.png",
     "static/media/logo.svg": "/shopify-NASA/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/shopify-NASA/index.html",
-    "main.df9f555c.css.map": "/shopify-NASA/static/css/main.df9f555c.css.map",
+    "main.9b3715ae.css.map": "/shopify-NASA/static/css/main.9b3715ae.css.map",
     "main.1dc621c5.js.map": "/shopify-NASA/static/js/main.1dc621c5.js.map",
     "787.edd59a96.chunk.js.map": "/shopify-NASA/static/js/787.edd59a96.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df9f555c.css",
+    "static/css/main.9b3715ae.css",
     "static/js/main.1dc621c5.js"
   ]
 }
